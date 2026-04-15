@@ -23,38 +23,59 @@ header {
     position: sticky;
     top: 0;
     background: #FFD700;
-    padding: 15px 40px;
+    padding: 15px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 1000;
 }
 
 header h2 {
     color: black;
 }
 
+/* NAV */
+nav {
+    display: flex;
+}
+
 nav a {
-    margin-left: 25px;
+    margin-left: 20px;
     text-decoration: none;
     color: black;
     font-weight: 600;
-    position: relative;
 }
 
-nav a::after {
-    content: "";
-    position: absolute;
-    width: 0%;
-    height: 2px;
-    background: black;
-    left: 0;
-    bottom: -5px;
-    transition: 0.3s;
+/* HAMBURGER */
+.menu-toggle {
+    display: none;
+    font-size: 25px;
+    cursor: pointer;
+    color: black;
 }
 
-nav a:hover::after {
-    width: 100%;
+/* MOBILE NAV */
+@media (max-width: 768px) {
+    nav {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: #FFD700;
+        flex-direction: column;
+        width: 200px;
+        display: none;
+    }
+
+    nav a {
+        margin: 15px;
+    }
+
+    nav.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
 }
 
 /* HERO */
@@ -65,55 +86,37 @@ nav a:hover::after {
     align-items: center;
     text-align: center;
     flex-direction: column;
-    background: linear-gradient(to bottom, black, #111);
-    animation: fadeIn 2s ease-in;
 }
 
 .hero h1 {
-    font-size: 50px;
+    font-size: 40px;
     color: #FFD700;
 }
 
 .hero p {
+    font-size: 16px;
     margin-top: 10px;
-    font-size: 18px;
-    color: #ccc;
 }
 
+/* BUTTON */
 .btn {
-    margin-top: 25px;
-    padding: 12px 25px;
-    border: none;
+    margin-top: 20px;
+    padding: 10px 20px;
     background: #FFD700;
     color: black;
-    font-weight: bold;
-    border-radius: 30px;
+    border: none;
+    border-radius: 25px;
     cursor: pointer;
-    transition: 0.3s;
-}
-
-.btn:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 15px #FFD700;
 }
 
 /* SECTIONS */
 section {
-    padding: 80px 40px;
+    padding: 60px 20px;
 }
 
 h2 {
+    text-align: center;
     color: #FFD700;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-/* ABOUT */
-#about p {
-    max-width: 700px;
-    margin: auto;
-    text-align: center;
-    line-height: 1.6;
 }
 
 /* SKILLS */
@@ -123,64 +126,31 @@ h2 {
 
 .skills span {
     display: inline-block;
-    margin: 10px;
-    padding: 10px 20px;
+    margin: 8px;
+    padding: 8px 15px;
     border: 1px solid #FFD700;
     border-radius: 20px;
-    transition: 0.3s;
 }
 
-.skills span:hover {
-    background: #FFD700;
-    color: black;
-    transform: translateY(-5px);
-}
-
-/* CARDS */
+/* CARD */
 .card {
     background: #111;
-    padding: 20px;
+    padding: 15px;
+    margin: 15px auto;
     border-radius: 10px;
-    margin: 20px auto;
-    max-width: 600px;
-    transition: 0.4s;
-}
-
-.card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+    max-width: 90%;
 }
 
 /* CONTACT */
 #contact p {
     text-align: center;
-    margin: 10px 0;
 }
 
 /* FOOTER */
 footer {
     text-align: center;
-    padding: 20px;
+    padding: 15px;
     background: #111;
-    color: #aaa;
-}
-
-/* ANIMATION */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-/* SCROLL REVEAL */
-.reveal {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: 1s;
-}
-
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
 }
 </style>
 
@@ -190,7 +160,8 @@ footer {
 
 <header>
     <h2>Shyam Kumar</h2>
-    <nav>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <nav id="navMenu">
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
@@ -201,20 +172,20 @@ footer {
 <section class="hero">
     <h1>Shyam Kumar S</h1>
     <p>Full Stack Developer with AI Skills</p>
-    <p>Passionate AML student building intelligent and user-friendly web applications</p>
+    <p>Passionate AML student building intelligent web applications</p>
     <button class="btn" onclick="scrollToContact()">Hire Me</button>
 </section>
 
-<section id="about" class="reveal">
+<section id="about">
     <h2>About Me</h2>
-    <p>
+    <p style="text-align:center; max-width:600px; margin:auto;">
         I am a passionate AI & ML student with strong interest in full stack development.
-        I have skills in problem solving, coding and creativity. My goal is to secure a good job
-        where I can apply my technical skills and grow professionally.
+        Skilled in problem solving, coding and creativity. My goal is to secure a good job
+        and grow in the tech industry.
     </p>
 </section>
 
-<section id="skills" class="reveal">
+<section id="skills">
     <h2>Skills</h2>
     <div class="skills">
         <span>HTML</span>
@@ -225,27 +196,19 @@ footer {
     </div>
 </section>
 
-<section id="projects" class="reveal">
+<section id="projects">
     <h2>Projects</h2>
 
     <div class="card">
         <h3>Password Security Application</h3>
-        <p>
-            A password management application that securely stores user passwords
-            on a local system and prevents password loss.
-        </p>
+        <p>A secure system to store and retrieve passwords safely.</p>
     </div>
 
-    <div class="card">
-        <h3>Google Forgot Password Concept</h3>
-        <p>
-            Demonstrates how password recovery systems work similar to real-world applications.
-        </p>
-    </div>
+    
 
 </section>
 
-<section class="reveal">
+<section>
     <h2>Education</h2>
     <div class="card">
         <p><b>College:</b> Vels Institute of Science, Technology & Advanced Studies</p>
@@ -254,14 +217,14 @@ footer {
     </div>
 </section>
 
-<section id="contact" class="reveal">
+<section id="contact">
     <h2>Contact</h2>
     <p>Email: shyamakshay042@gmail.com</p>
     <p>Phone: 9345852589</p>
 </section>
 
 <footer>
-    <p>© 2026 Shyam Kumar | Portfolio</p>
+    <p>© 2026 Shyam Kumar</p>
 </footer>
 
 <script>
@@ -269,19 +232,9 @@ function scrollToContact() {
     document.getElementById("contact").scrollIntoView({ behavior: "smooth" });
 }
 
-/* SCROLL ANIMATION */
-window.addEventListener("scroll", function() {
-    let reveals = document.querySelectorAll(".reveal");
-
-    for (let i = 0; i < reveals.length; i++) {
-        let windowHeight = window.innerHeight;
-        let elementTop = reveals[i].getBoundingClientRect().top;
-
-        if (elementTop < windowHeight - 100) {
-            reveals[i].classList.add("active");
-        }
-    }
-});
+function toggleMenu() {
+    document.getElementById("navMenu").classList.toggle("active");
+}
 </script>
 
 </body>
