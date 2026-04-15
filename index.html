@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shyam Kumar Portfolio</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #0f172a;
+            color: white;
+        }
+
+        header {
+            background: #020617;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h2 {
+            color: #38bdf8;
+        }
+
+        nav a {
+            color: white;
+            margin-left: 20px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            color: #38bdf8;
+        }
+
+        section {
+            padding: 60px 30px;
+        }
+
+        .hero {
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 40px;
+            color: #38bdf8;
+        }
+
+        .hero p {
+            font-size: 18px;
+        }
+
+        .btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #38bdf8;
+            border: none;
+            color: black;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .skills span {
+            display: inline-block;
+            background: #1e293b;
+            padding: 8px 15px;
+            margin: 5px;
+            border-radius: 20px;
+        }
+
+        .card {
+            background: #1e293b;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #020617;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h2>Shyam Kumar</h2>
+    <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>Shyam Kumar S</h1>
+    <p>Full Stack Developer with AI Skills</p>
+    <p>Passionate AML student building intelligent and user-friendly web applications</p>
+    <button class="btn" onclick="scrollToContact()">Hire Me</button>
+</section>
+
+<section id="about">
+    <h2>About Me</h2>
+    <p>
+        I am a passionate AI & ML student with strong interest in full stack development.
+        I have skills in problem solving, coding and creativity. My goal is to secure a good job
+        where I can apply my technical skills and grow professionally.
+    </p>
+</section>
+
+<section id="skills">
+    <h2>Skills</h2>
+    <div class="skills">
+        <span>HTML</span>
+        <span>CSS</span>
+        <span>Python</span>
+        <span>Git</span>
+        <span>GitHub</span>
+    </div>
+</section>
+
+<section id="projects">
+    <h2>Projects</h2>
+
+    <div class="card">
+        <h3>Password Security Application</h3>
+        <p>
+            A password management application that securely stores user passwords
+            on a local system. It helps prevent password loss and ensures safe access
+            whenever required.
+        </p>
+        <p><b>Technologies:</b> Python</p>
+    </div>
+
+    <div class="card">
+        <h3>Google Forgot Password Concept</h3>
+        <p>
+            A concept-based project that demonstrates how password recovery systems work,
+            similar to Google's forgot password feature.
+        </p>
+    </div>
+
+</section>
+
+<section>
+    <h2>Education</h2>
+    <div class="card">
+        <p><b>College:</b> Vels Institute of Science, Technology & Advanced Studies</p>
+        <p><b>Course:</b> AI & ML</p>
+        <p><b>Year:</b> 2nd Year</p>
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Contact</h2>
+    <p>Email: shyamakshay042@gmail.com</p>
+    <p>Phone: 9345852589</p>
+</section>
+
+<footer>
+    <p>© 2026 Shyam Kumar | Portfolio</p>
+</footer>
+
+<script>
+    function scrollToContact() {
+        document.getElementById("contact").scrollIntoView({ behavior: "smooth" });
+    }
+</script>
+
+</body>
+</html>
