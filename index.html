@@ -1,88 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shyam Kumar Portfolio</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #0f172a;
-            color: white;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shyam Kumar Portfolio</title>
 
-        header {
-            background: #020617;
-            padding: 15px 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
 
-        header h2 {
-            color: #38bdf8;
-        }
+body {
+    background: #000;
+    color: white;
+}
 
-        nav a {
-            color: white;
-            margin-left: 20px;
-            text-decoration: none;
-        }
+/* HEADER */
+header {
+    position: sticky;
+    top: 0;
+    background: #FFD700;
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
 
-        nav a:hover {
-            color: #38bdf8;
-        }
+header h2 {
+    color: black;
+}
 
-        section {
-            padding: 60px 30px;
-        }
+nav a {
+    margin-left: 25px;
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+    position: relative;
+}
 
-        .hero {
-            text-align: center;
-        }
+nav a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background: black;
+    left: 0;
+    bottom: -5px;
+    transition: 0.3s;
+}
 
-        .hero h1 {
-            font-size: 40px;
-            color: #38bdf8;
-        }
+nav a:hover::after {
+    width: 100%;
+}
 
-        .hero p {
-            font-size: 18px;
-        }
+/* HERO */
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    background: linear-gradient(to bottom, black, #111);
+    animation: fadeIn 2s ease-in;
+}
 
-        .btn {
-            margin-top: 20px;
-            padding: 10px 20px;
-            background: #38bdf8;
-            border: none;
-            color: black;
-            cursor: pointer;
-            border-radius: 5px;
-        }
+.hero h1 {
+    font-size: 50px;
+    color: #FFD700;
+}
 
-        .skills span {
-            display: inline-block;
-            background: #1e293b;
-            padding: 8px 15px;
-            margin: 5px;
-            border-radius: 20px;
-        }
+.hero p {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #ccc;
+}
 
-        .card {
-            background: #1e293b;
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 20px;
-        }
+.btn {
+    margin-top: 25px;
+    padding: 12px 25px;
+    border: none;
+    background: #FFD700;
+    color: black;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+}
 
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #020617;
-        }
-    </style>
+.btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px #FFD700;
+}
+
+/* SECTIONS */
+section {
+    padding: 80px 40px;
+}
+
+h2 {
+    color: #FFD700;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* ABOUT */
+#about p {
+    max-width: 700px;
+    margin: auto;
+    text-align: center;
+    line-height: 1.6;
+}
+
+/* SKILLS */
+.skills {
+    text-align: center;
+}
+
+.skills span {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 20px;
+    border: 1px solid #FFD700;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.skills span:hover {
+    background: #FFD700;
+    color: black;
+    transform: translateY(-5px);
+}
+
+/* CARDS */
+.card {
+    background: #111;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 600px;
+    transition: 0.4s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+}
+
+/* CONTACT */
+#contact p {
+    text-align: center;
+    margin: 10px 0;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #111;
+    color: #aaa;
+}
+
+/* ANIMATION */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* SCROLL REVEAL */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 1s;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+</style>
+
 </head>
+
 <body>
 
 <header>
@@ -102,7 +205,7 @@
     <button class="btn" onclick="scrollToContact()">Hire Me</button>
 </section>
 
-<section id="about">
+<section id="about" class="reveal">
     <h2>About Me</h2>
     <p>
         I am a passionate AI & ML student with strong interest in full stack development.
@@ -111,7 +214,7 @@
     </p>
 </section>
 
-<section id="skills">
+<section id="skills" class="reveal">
     <h2>Skills</h2>
     <div class="skills">
         <span>HTML</span>
@@ -122,30 +225,27 @@
     </div>
 </section>
 
-<section id="projects">
+<section id="projects" class="reveal">
     <h2>Projects</h2>
 
     <div class="card">
         <h3>Password Security Application</h3>
         <p>
             A password management application that securely stores user passwords
-            on a local system. It helps prevent password loss and ensures safe access
-            whenever required.
+            on a local system and prevents password loss.
         </p>
-        <p><b>Technologies:</b> Python</p>
     </div>
 
     <div class="card">
         <h3>Google Forgot Password Concept</h3>
         <p>
-            A concept-based project that demonstrates how password recovery systems work,
-            similar to Google's forgot password feature.
+            Demonstrates how password recovery systems work similar to real-world applications.
         </p>
     </div>
 
 </section>
 
-<section>
+<section class="reveal">
     <h2>Education</h2>
     <div class="card">
         <p><b>College:</b> Vels Institute of Science, Technology & Advanced Studies</p>
@@ -154,7 +254,7 @@
     </div>
 </section>
 
-<section id="contact">
+<section id="contact" class="reveal">
     <h2>Contact</h2>
     <p>Email: shyamakshay042@gmail.com</p>
     <p>Phone: 9345852589</p>
@@ -165,9 +265,23 @@
 </footer>
 
 <script>
-    function scrollToContact() {
-        document.getElementById("contact").scrollIntoView({ behavior: "smooth" });
+function scrollToContact() {
+    document.getElementById("contact").scrollIntoView({ behavior: "smooth" });
+}
+
+/* SCROLL ANIMATION */
+window.addEventListener("scroll", function() {
+    let reveals = document.querySelectorAll(".reveal");
+
+    for (let i = 0; i < reveals.length; i++) {
+        let windowHeight = window.innerHeight;
+        let elementTop = reveals[i].getBoundingClientRect().top;
+
+        if (elementTop < windowHeight - 100) {
+            reveals[i].classList.add("active");
+        }
     }
+});
 </script>
 
 </body>
